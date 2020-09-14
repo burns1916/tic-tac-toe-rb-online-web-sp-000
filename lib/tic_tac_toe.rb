@@ -55,10 +55,11 @@ end
 def current_player(board)
   turn_count(board)
   if turn_count(board).even?
-    return "X"
+   player = "X"
   elsif turn_count(board).odd?
-    return "O"
+    player = "O"
 end
+return player
 end
 
 def turn(board)
@@ -66,6 +67,7 @@ def turn(board)
   input = gets.strip
   index = input_to_index(input)
   if valid_move?(board, index) == true
+    player_token = current_player(board)
     move(board, index, player_token)
     display_board(board)
   else
